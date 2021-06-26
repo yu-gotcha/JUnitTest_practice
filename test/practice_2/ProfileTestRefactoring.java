@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 /* 모든 테스트는 다른 테스트 결과에 영향을 받지 않음 */
 /* 각각 별도의 ProfileTest 인스턴스 생성 */
 
-public class ProfileTestRefactorung {
+public class ProfileTestRefactoring {
 
     private Profile profile;
     private BooleanQuestion question;
@@ -27,14 +27,8 @@ public class ProfileTestRefactorung {
     @Test
     public void matchAnswersFalseWhenMustMatchCriteriaNotMet() {
         //Arrange 준비
-
-
-        Answer profileAnswer = new Answer(question, Bool.FALSE);
-        profile.add(profileAnswer);
-
-        Answer criteriaAnswer = new Answer(question, Bool.TRUE);
-        Criterion criterion = new Criterion(criteriaAnswer, Weight.MustMatch);
-        criteria.add(criterion);
+        profile.add(new Answer(question, Bool.FALSE));
+        criteria.add(new Criterion(new Answer(question, Bool.TRUE), Weight.MustMatch));
 
         //Action 실행
         boolean matches = profile.matches(criteria);
@@ -46,14 +40,8 @@ public class ProfileTestRefactorung {
     @Test
     public void matchAnswersTrueForAnyDontCareCriteria() {
         //Arrange 준비
-
-
-        Answer profileAnswer = new Answer(question, Bool.FALSE);
-        profile.add(profileAnswer);
-
-        Answer criteriaAnswer = new Answer(question, Bool.TRUE);
-        Criterion criterion = new Criterion(criteriaAnswer, Weight.DontCare);
-        criteria.add(criterion);
+        profile.add(new Answer(question, Bool.FALSE));
+        criteria.add(new Criterion(new Answer(question, Bool.TRUE), Weight.DontCare));
 
         //Action 실행
         boolean matches = profile.matches(criteria);

@@ -1,17 +1,18 @@
 package practice_2;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 /* JUnit은 결정된 순서로 테스트 실행하지 않음 */
 /* 모든 테스트는 다른 테스트 결과에 영향을 받지 않음 */
 /* 각각 별도의 ProfileTest 인스턴스 생성 */
 
-class ProfileTest {
+public class ProfileTest {
 
     @Test
-    void matchAnswersFalseWhenMustMatchCriteriaNotMet() {
+    public void matchAnswersFalseWhenMustMatchCriteriaNotMet() {
         //Arrange 준비
         Profile profile = new Profile("Bull Hockey, Inc.");
         Question question = new BooleanQuestion(1, "Got bonuses?");
@@ -30,7 +31,7 @@ class ProfileTest {
     }
 
     @Test
-    void matchAnswersTrueForAnyDontCareCriteria() {
+    public void matchAnswersTrueForAnyDontCareCriteria() {
         //Arrange 준비
         Profile profile = new Profile("Bull Hockey, Inc.");
         Question question = new BooleanQuestion(1, "Got milk?");
@@ -47,5 +48,4 @@ class ProfileTest {
         //Assert 단언
         assertTrue(matches);
     }
-
 }

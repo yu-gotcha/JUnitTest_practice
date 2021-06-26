@@ -1,12 +1,12 @@
 package practice_1;
 
 import org.hamcrest.MatcherAssert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
-class ScoreCollectionTest {
+public class ScoreCollectionTest {
 
     @Test
     public void answersArithmeticMeanOfTwoNumbers() {

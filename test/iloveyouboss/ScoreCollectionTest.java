@@ -1,5 +1,6 @@
 package iloveyouboss;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -19,6 +20,6 @@ class ScoreCollectionTest {
         int actualResult = collection.arithmeticMean();
 
         //단언
-        assertThat(actualResult, equalTo(6));
+        MatcherAssert.assertThat(actualResult, equalTo(6));
     }
 }

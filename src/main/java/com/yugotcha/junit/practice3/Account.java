@@ -14,9 +14,9 @@ public class Account {
         balance += dollars;
     }
 
-    void withdraw(int dollars) throws InsufficientResourcesException {
+    void withdraw(int dollars) {
         if(balance < dollars) {
-            throw new InsufficientResourcesException("balance only " + balance);
+            throw new InsufficientFundsException("balance only " + balance);
         }
         balance -= dollars;
     }
